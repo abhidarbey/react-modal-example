@@ -7,9 +7,18 @@ import { SamplePage } from './SamplePage';
 export const Resolution = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    // const [modalId, setModalId] = useState(null)
+    const [modalData, setModalData] = useState({})
+    let samplePage;
 
-    const clickOpen = () => {
+    const clickOpen = (element) => {
         setModalIsOpen(true)
+        // setModalId(element.id)
+        setModalData(element)
+    }
+
+    const clickClose = () => {
+        setModalIsOpen(false)
     }
 
     const revenueMVPD = revenueListMVPD.map(element => (
@@ -24,10 +33,11 @@ export const Resolution = () => {
         <td>{element.value}</td>
         <td>{element.status}</td>
         <td>
-            <button className="btn btn-primary" onClick={clickOpen}>Add Resolution</button>
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-                <SamplePage data={element} revenueListNetwork={revenueListNetwork} />
-            </Modal>
+            <button className="btn btn-primary"
+                    onClick={() => clickOpen(element)}>
+                        Add Resolution
+            </button>
+            
         </td>
         {/* <td>
           <div className="btn-group" role="group">
@@ -67,6 +77,17 @@ export const Resolution = () => {
                     {revenueMVPD}
                 </tbody>
             </table>
+            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                <SamplePage
+                    show={modalIsOpen}
+                    data={modalData}
+                    revenueListNetwork={revenueListNetwork}
+                  />
+                  <button className="btn btn-primary"
+                          onClick={clickClose}>
+                              Close
+                  </button>
+            </Modal>
         </div>
     )
 }

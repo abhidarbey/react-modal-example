@@ -27,12 +27,12 @@ export const SamplePage = (props) => {
 
     if (revenueMVPD.attribute === "DIGITAL ECONOMY VAR $") {
         selectElement = (
-            <div classname="row">
-                <div classname="col-md-8">
+            <div className="row">
+                <div className="col-md-8">
                     <h6>{revenueMVPD.attribute}</h6>
                     <p>{revenueMVPD.value}</p>
                 </div>
-                <div classname="col-md-8">
+                <div className="col-md-8">
                     <h6>Select Resolution</h6>
                     <select className="form-control">
                         {selectOption}
@@ -42,12 +42,12 @@ export const SamplePage = (props) => {
           );
       } else if (revenueMVPD.attribute === "BULK EBU VAR $") {
         selectElement = (
-            <div classname="row">
-                <div classname="col-md-8">
+            <div className="row">
+                <div className="col-md-8">
                     <h6>{revenueMVPD.attribute}</h6>
                     <p>{revenueMVPD.value}</p>
                 </div>
-                <div classname="col-md-8">
+                <div className="col-md-8">
                     <h6>Select Resolution</h6>
                     <select className="form-control">
                         {selectOption}
@@ -57,12 +57,12 @@ export const SamplePage = (props) => {
           );
       } else if (revenueMVPD.attribute === "RATE VAR $") {
         selectElement = (
-            <div classname="row">
-                <div classname="col-md-8">
+            <div className="row">
+                <div className="col-md-8">
                     <h6>{revenueMVPD.attribute}</h6>
                     <p>{revenueMVPD.value}</p>
                 </div>
-                <div classname="col-md-8">
+                <div className="col-md-8">
                     <h6>Select Resolution</h6>
                     <select className="form-control">
                         {selectOption}
