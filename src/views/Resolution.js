@@ -4,6 +4,8 @@ import revenueListMVPD from './reveneListMVPD';
 import revenueListNetwork from './revenueListNetwork';
 import { SamplePage } from './SamplePage';
 
+Modal.setAppElement('#root')
+
 export const Resolution = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -19,16 +21,15 @@ export const Resolution = () => {
     }
 
     const revenueMVPD = revenueListMVPD.map(element => (
-      <tr key={element.id}>
-        <td>{element.id}</td>
-        <td>{element.mvpd}</td>
-        <td>{element.audit_period}</td>
-        <td>{element.due}</td>
-        <td>{element.paid}</td>
-        <td>{element.combined_variance}</td>
-        <td>{element.resolved}</td>
-        <td>{element.value}</td>
-        <td>{element.status}</td>
+      <tr key={element["ID"]}>
+        <td>{element["ID"]}</td>
+        <td>{element["MVPD"]}</td>
+        <td>{element["AUDITPERIOD"]}</td>
+        <td>{element["DUE"]}</td>
+        <td>{element["PAID"]}</td>
+        <td>{element["COMBINEDVARIANCE"]}</td>
+        <td>{element["RESOLVED"]}</td>
+        <td>{element["RESOLUTION"]}</td>
         <td>
           <div className="btn-group" role="group">
                 <button id="btnGroupDrop1" type="button" className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,15 +54,14 @@ export const Resolution = () => {
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <th scope="col">ID</th>
                         <th scope="col">MVPD</th>
                         <th scope="col">Audit Period</th>
                         <th scope="col">$ Due</th>
                         <th scope="col">$ Paid</th>
-                        <th scope="col">$ Total Vari.</th>
+                        <th scope="col">$ Comb. Var.</th>
                         <th scope="col">$ Resolved</th>
-                        <th scope="col">$ Collected</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">$ Resolution</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -71,7 +71,7 @@ export const Resolution = () => {
             </table>
             
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
-                <SamplePage data={modalData} revenueListNetwork={revenueListNetwork} />
+                <SamplePage revenueMVPD={modalData} revenueListNetwork={revenueListNetwork} />
                   <button className="btn btn-primary" onClick={clickClose}>
                         Close
                   </button>
